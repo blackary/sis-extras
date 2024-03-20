@@ -49,8 +49,7 @@ class SnowparkConnection:
     # (otherwise you get a "User is empty" error)
     def connect(self):
         try:
-            sess = get_active_session()
-            return sess
+            return get_active_session()
         except SnowparkSessionException:
             ctx = get_script_run_ctx()
 
@@ -210,7 +209,7 @@ def join_cached(
     """
 
     @st.cache_resource
-    def _join_cached(_df1, _df2, _on, how, lsuffix, rsuffix, meta_query, **kwargs):
+    def _join_cached(_df1, _df2, _on, how, lsuffix, rsuffix, meta_query, **kwargs):  # noqa: ARG001
         """
         Ignore df1, df2 and on, because those are not cachable, and instead just depend
         on how, lsuffix, rsuffix, and meta_query

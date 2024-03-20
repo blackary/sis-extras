@@ -42,10 +42,7 @@ def tile_ctx(
         ValueError: Whenever chart is not an altair or plotly chart.
     """
 
-    if isinstance(df, sp.DataFrame):
-        data = get_pandas_df(df)
-    else:
-        data = df
+    data = get_pandas_df(df) if isinstance(df, sp.DataFrame) else df
 
     if not skip_chart:
         t1, t2, t3, t4, t5 = st.tabs(
@@ -61,7 +58,7 @@ def tile_ctx(
     t4.markdown(description)
 
     if chart is not None:
-        if isinstance(chart, alt.Chart) or isinstance(chart, alt.LayerChart):
+        if isinstance(chart, (alt.Chart, alt.LayerChart)):
             t1.altair_chart(chart, use_container_width=True)
         elif isinstance(chart, Figure):
             t1.plotly_chart(
@@ -141,7 +138,6 @@ def altair_time_series(
     y_axis_format: str = ".0f",
     line_color="blue",
     color_var="variable",
-    **kwargs,
 ) -> alt.Chart | None:
     """Plot a time series using Altair
     Args:
@@ -176,10 +172,7 @@ def altair_time_series(
     chart_list = []
     for df, format in zip(data_list, format_list):
         # Move the min tick step
-        if df[y].max() < 1:
-            tick_min_step = 0
-        else:
-            tick_min_step = 1
+        tick_min_step = 0 if df[y].max() < 1 else 1
 
         base = alt.Chart(df).mark_line(color=line_color, point=True)
         domain = [0, float(df[y].max()) * 1.2]
@@ -204,10 +197,6 @@ def altair_time_series(
         chart_list.append(chart)
 
     # Combine the charts if necessary
-    if len(chart_list) > 1:
-        chart = alt.layer(*chart_list)
-    else:
-        chart = chart_list[0]
+    chart = alt.layer(*chart_list) if len(chart_list) > 1 else chart_list[0]
 
-    chart = chart.configure_legend(orient="bottom")
-    return chart
+    return chart.configure_legend(orient="bottom")
