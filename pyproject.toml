@@ -2,15 +2,14 @@
 name = "sis-extras"
 version = "0.1.0"
 description = "Python package to make it easy to develop beautiful, performant streamlit-in-snowflake apps"
-authors = [
-    {name = "Zachary Blackwood", email = "zblackwo@gmail.com"},
-]
+authors = [{ name = "Zachary Blackwood", email = "zblackwo@gmail.com" }]
 dependencies = [
     "streamlit==1.26.0",
+    "snowflake-snowpark-python>=1.13.0",
 ]
-requires-python = "!=3.9.7,>=3.8"
+requires-python = "==3.8.*"
 readme = "README.md"
-license = {text = "MIT"}
+license = { text = "MIT" }
 
 [build-system]
 requires = ["pdm-backend"]
