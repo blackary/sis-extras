@@ -9,6 +9,8 @@ import snowflake.snowpark as sp
 import streamlit as st
 from plotly.graph_objs._figure import Figure
 
+from .connection import format_sql, format_sql_from_df, get_pandas_df
+
 
 @contextmanager
 def tile_ctx(
@@ -208,4 +210,4 @@ def altair_time_series(
         chart = chart_list[0]
 
     chart = chart.configure_legend(orient="bottom")
-    return chartgg
+    return chart

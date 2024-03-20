@@ -6,6 +6,7 @@ authors = [{ name = "Zachary Blackwood", email = "zblackwo@gmail.com" }]
 dependencies = [
     "streamlit==1.26.0",
     "snowflake-snowpark-python>=1.13.0",
+    "plotly>=5.20.0",
 ]
 requires-python = "==3.8.*"
 readme = "README.md"
