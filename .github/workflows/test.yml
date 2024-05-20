@@ -2,9 +2,9 @@ name: Test
 
 on:
   push:
-    branches:
-      - main
+    branches: ["main"]
   pull_request:
+    branches: ["main"]
 
 jobs:
   pytest:
@@ -12,8 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pdm-project/setup-pdm@v3
+      - uses: pdm-project/setup-pdm@v4
       - name: Install dev dependencies
         run: pdm install --dev
       - name: Run tests
-        run: pdm run pytest
+        run: pdm run pytest -v --junit-xml=test-results.xml
+      - if: always()
+        uses: pmeier/pytest-results-action@v0.6.0
+        with:
+          path: test-results.xml
+          summary: true
+          display-options: fEX
