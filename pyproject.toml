@@ -1,6 +1,6 @@
 [project]
 name = "sis-extras"
-version = "0.1.1"
+version = "0.1.3"
 description = "Python package to make it easy to develop beautiful, performant streamlit-in-snowflake apps"
 authors = [
     { name = "Zachary Blackwood", email = "zblackwo@gmail.com" },
@@ -12,6 +12,14 @@ dependencies = [
 ]
 requires-python = "==3.8.*"
 readme = "README.md"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.8",
+]
+
+[project.urls]
+Source = "https://github.com/blackary/sis-extras"
+Tracker = "https://github.com/blackary/sis-extras/issues"
 
 [project.license]
 text = "MIT"
