@@ -1,8 +1,10 @@
 [project]
 name = "sis-extras"
-version = "0.1.0"
+version = "0.1.1"
 description = "Python package to make it easy to develop beautiful, performant streamlit-in-snowflake apps"
-authors = [{ name = "Zachary Blackwood", email = "zblackwo@gmail.com" }]
+authors = [
+    { name = "Zachary Blackwood", email = "zblackwo@gmail.com" },
+]
 dependencies = [
     "streamlit==1.31.1",
     "snowflake-snowpark-python>=1.13.0",
@@ -10,42 +12,61 @@ dependencies = [
 ]
 requires-python = "==3.8.*"
 readme = "README.md"
-license = { text = "MIT" }
+
+[project.license]
+text = "MIT"
+
+[project.optional-dependencies]
 
 [build-system]
-requires = ["pdm-backend"]
+requires = [
+    "pdm-backend",
+]
 build-backend = "pdm.backend"
-
 
 [tool.pdm]
 distribution = true
-
+plugins = [
+    "pdm-bump",
+]
 
 [tool.pdm.dev-dependencies]
 dev = [
     "pytest>=8.2.0",
 ]
+
 [tool.ruff]
-exclude = [".git", ".vscode", ".pytest_cache", ".mypy_cache", ".env"]
-ignore = ["B008", "ISC001", "E501", "W191"]
+exclude = [
+    ".git",
+    ".vscode",
+    ".pytest_cache",
+    ".mypy_cache",
+    ".env",
+]
+ignore = [
+    "B008",
+    "ISC001",
+    "E501",
+    "W191",
+]
 line-length = 88
 select = [
-    "B",   # https://pypi.org/project/flake8-bugbear/
-    "E",   # https://pycodestyle.pycqa.org/en/latest/intro.html#error-codes
-    "F",   # https://flake8.pycqa.org/en/latest/user/error-codes.html
-    "W",   # https://pycodestyle.pycqa.org/en/latest/intro.html#error-codes
-    "I",   # https://pycqa.github.io/isort/
-    "N",   # https://github.com/PyCQA/pep8-naming
-    "C4",  # https://github.com/adamchainz/flake8-comprehensions
-    "EXE", # https://pypi.org/project/flake8-executable/
-    "ISC", # https://github.com/flake8-implicit-str-concat/flake8-implicit-str-concat
-    "ICN", # https://pypi.org/project/flake8-import-conventions/
-    "PIE", # https://pypi.org/project/flake8-pie/
-    "PT",  # https://github.com/m-burst/flake8-pytest-style
-    "RET", # https://pypi.org/project/flake8-return/
-    "SIM", # https://pypi.org/project/flake8-simplify/
-    "ERA", # https://pypi.org/project/flake8-eradicate/
-    "PLC", # https://beta.ruff.rs/docs/rules/#convention-plc
-    "RUF", # https://beta.ruff.rs/docs/rules/#ruff-specific-rules-ruf
-    "ARG", # https://beta.ruff.rs/docs/rules/#flake8-unused-arguments-arg
+    "B",
+    "E",
+    "F",
+    "W",
+    "I",
+    "N",
+    "C4",
+    "EXE",
+    "ISC",
+    "ICN",
+    "PIE",
+    "PT",
+    "RET",
+    "SIM",
+    "ERA",
+    "PLC",
+    "RUF",
+    "ARG",
 ]
