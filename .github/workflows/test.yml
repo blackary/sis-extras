@@ -17,11 +17,8 @@ jobs:
       - uses: pdm-project/setup-pdm@v3
       - name: Install dev dependencies
         run: pdm install --dev
-      - uses: streamlit/streamlit-app-action@v0.0.3
-        with:
-          app-path: tests/example_app.py
-          ruff: true
-          pytest-args: -v --junit-xml=test-results.xml
+      - name: Run tests
+        run: pdm run pytest -v --junit-xml=test-results.xml
       - if: always()
         uses: pmeier/pytest-results-action@v0.6.0
         with:

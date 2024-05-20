@@ -10,3 +10,5 @@ chart = alt.Chart(data).mark_line().encode(x="x", y="y")
 
 # Create a tile with data and chart
 tile(data, "Sample Tile", chart=chart, sql="SELECT x, y FROM your_table")
+
+raise ValueError("Oh, no!")
