@@ -14,6 +14,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - uses: pdm-project/setup-pdm@v3
+      - name: Install dev dependencies
+        run: pdm install --dev
       - uses: streamlit/streamlit-app-action@v0.0.3
         with:
           app-path: tests/example_app.py
