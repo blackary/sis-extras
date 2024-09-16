@@ -1,5 +1,6 @@
 import altair as alt
 import pandas as pd
+
 from sis_extras.formatting import tile
 
 # Sample DataFrame
