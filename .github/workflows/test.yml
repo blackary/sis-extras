@@ -15,8 +15,8 @@ jobs:
       - name: Install the latest version of uv and set the python version
         uses: astral-sh/setup-uv@v5
         with:
-          python-version: "3.*"
-      - name: Test with python ${{ matrix.python-version }}
+          python-version: "3.12"
+      - name: Test with python 3.12
         run: uv run --frozen pytest -v --junit-xml=test-results.xml
       - if: always()
         uses: pmeier/pytest-results-action@v0.6.0
