@@ -16,6 +16,7 @@ jobs:
         uses: astral-sh/setup-uv@v5
         with:
           python-version: "3.12"
+          enable-cache: true
       - name: Test with python 3.12
         run: uv run --frozen pytest -v --junit-xml=test-results.xml
       - if: always()
