@@ -13,8 +13,8 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v4
-
-      - uses: pdm-project/setup-pdm@v3
-
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.*"
       - name: Publish package distributions to PyPI
-        run: pdm publish
+        run: uv publish
