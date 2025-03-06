@@ -53,3 +53,8 @@ select = [
     "RUF",
     "ARG",
 ]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.3.5",
+]
