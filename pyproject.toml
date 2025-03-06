@@ -4,11 +4,11 @@ version = "0.1.4"
 description = "Python package to make it easy to develop beautiful, performant streamlit-in-snowflake apps"
 authors = [{ name = "Zachary Blackwood", email = "zblackwo@gmail.com" }]
 dependencies = [
-    "streamlit==1.31.1",
+    "streamlit>=1.31.1",
     "snowflake-snowpark-python>=1.13.0",
     "plotly>=5.20.0",
 ]
-requires-python = "==3.8.*"
+requires-python = ">=3.8,<3.13"
 readme = "README.md"
 classifiers = [
     "License :: OSI Approved :: MIT License",
@@ -55,6 +55,4 @@ select = [
 ]
 
 [tool.uv]
-dev-dependencies = [
-    "pytest>=8.3.5",
-]
+dev-dependencies = ["pytest>=8.3.5"]
