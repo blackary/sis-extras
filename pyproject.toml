@@ -4,15 +4,19 @@ version = "0.1.4"
 description = "Python package to make it easy to develop beautiful, performant streamlit-in-snowflake apps"
 authors = [{ name = "Zachary Blackwood", email = "zblackwo@gmail.com" }]
 dependencies = [
-    "streamlit>=1.34.0",
-    "snowflake-snowpark-python>=1.13.0",
-    "plotly>=5.20.0",
+    "streamlit",
+    "snowflake-snowpark-python",
+    "plotly",
+    "numpy>1.24.4",
 ]
-requires-python = ">=3.8,<3.13"
+requires-python = ">=3.9,<3.13"
 readme = "README.md"
 classifiers = [
     "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
 ]
 
 [project.urls]
@@ -21,9 +25,6 @@ Tracker = "https://github.com/blackary/sis-extras/issues"
 
 [project.license]
 text = "MIT"
-
-[project.optional-dependencies]
-dev = ["pytest>=8.2.0"]
 
 [build-system]
 requires = ["hatchling"]
