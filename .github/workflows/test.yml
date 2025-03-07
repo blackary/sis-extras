@@ -12,11 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pdm-project/setup-pdm@v4
-      - name: Install dev dependencies
-        run: pdm install --dev
-      - name: Run tests
-        run: pdm run pytest -v --junit-xml=test-results.xml
+      - name: Install the latest version of uv and set the python version
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+          enable-cache: true
+      - name: Test with python 3.12
+        run: uv run --frozen pytest -v --junit-xml=test-results.xml
       - if: always()
         uses: pmeier/pytest-results-action@v0.6.0
         with:

@@ -14,9 +14,14 @@ repos:
     rev: v1.15.0
     hooks:
       - id: mypy
-        language_version: python3.10
-        
+        language_version: python3.12
+        args:
+          - --explicit-package-bases # This is to resolve mypy issues that seem to arise from having too many directories with the same names
+          - --ignore-missing-imports # This is the default setting for pre-commit mypy, since it doesn't install all the packages in your environment
+        additional_dependencies:
+          - types-PyYAML
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v4.6.0
     hooks:
       - id: end-of-file-fixer
